@@ -30,7 +30,7 @@ a chatbot.
 One pattern is to look for a "smashword", or other unique token, as part of
 every message.
 
-For example:
+Example:
 ```
 user> bot, do something
 bot> "do something" is protected from duplicate commands, append ASDF7548 to the end of the command
@@ -38,13 +38,26 @@ user> bot, do something ASDF7548
 bot> running "do something"
 ```
 
+#### Grouping commands within a namespace
+
+A plugin/handler/module often provides multiple commands.  Consider putting
+them under a common starting keyword.
+
+Example:
+```
+user> mysql explain QUERY
+user> mysql run QUERY
+user> mysql replication stop HOST1
+```
+
 ### Output from a bot
 
 #### Formatting output
 
 When using transports that allow it, command-line-like output is often better
-formatted in monospace fonts.  For example:
+formatted in monospace fonts.
 
+Example:
 ```
 --------------------------------
 | a simple table | col1 | col2 |
@@ -63,8 +76,9 @@ When a resource may change state (either through chatops or through outside
 interaction), it's often helpful to provide a command to follow along with
 state changes.  Two different ways are possible: "watch", which can provide
 a continuous monitoring stream, and "stalk", which can provide a update only
-when the state changes.  For example:
+when the state changes.
 
+Example:
 ```
 user> watch server-load
 bot> server load 0.0
